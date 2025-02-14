@@ -1,5 +1,8 @@
 package main;
 
+import skins.TamagochiFrogRender;
+import skins.TamagochiOriginalRenderer;
+import skins.TamagochiSkinsInterface;
 import state.HappyState;
 import state.TamagotchiState;
 
@@ -7,6 +10,7 @@ public class Tamagotchi {
     
     private static final int MAX_HUNGER = 100;
     private static final int MIN_HUNGER = 0;
+    private TamagochiSkinsInterface tamagochiSkin;
 
     private String name;
     private int hunger;
@@ -18,29 +22,34 @@ public class Tamagotchi {
     private static Tamagotchi instance;
 
     //MAKE THE CONSTRUCTOR PRIVATE - SINGLETON - 
-    private Tamagotchi(String name){
+    private Tamagotchi(String name, int skin){
         this.name = name;
         hunger = 50;
         currentState = new HappyState();
+        switch (skin) {
+            case 1 -> tamagochiSkin = new TamagochiOriginalRenderer();
+            case 2 -> tamagochiSkin = new TamagochiFrogRender();
+            default -> tamagochiSkin = new TamagochiOriginalRenderer(); 
+        }
     }
 
     //GET INSTANCE OF THE TAMAGOTCHI CLASS
-    public static Tamagotchi createTamagotchi(String name){
+    public static Tamagotchi createTamagotchi(String name, int skin){
         if(instance == null) {
-            instance = new Tamagotchi(name);
+            instance = new Tamagotchi(name, skin);
         }
         return instance;
     }
 
     // ACTIONS
     public void play(){
-        this.currentState = this.currentState.play(this);
+        this.currentState = this.currentState.play(this, tamagochiSkin);
         gp.playSFX(3);
         
     }
 
     public void eat(){
-        this.currentState = this.currentState.getFood(this);
+        this.currentState = this.currentState.getFood(this, tamagochiSkin);
         gp.playSFX(4);
     }
 

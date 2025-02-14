@@ -1,0 +1,9 @@
+### IDE ###
+.classpath
+.project
+
+# Ignore all bin directories
+bin/
+
+### Ignore Compiled class file (.class) ###
+*.class

@@ -2,6 +2,7 @@ package main;
 import java.util.Scanner;
 
 import state.DeadState;
+import utils.SharedConstants;
 import utils.SoundPlayer;
 import utils.TamagotchiHelper;
 import utils.Text;
@@ -34,6 +35,7 @@ public class Game {
 
         while (gameRunning) {
             int option = showMenu();
+            clearConsole();
             gameRunning = processGameOption(option);
             //CHECK IF TAMAGOTCHI DIED
             if (tamagotchi.getCurrentState() instanceof DeadState) {
@@ -57,9 +59,13 @@ public class Game {
             String name = scanner.nextLine();
 
             if (TamagotchiHelper.checkName(name)) {
-                tamagotchi = Tamagotchi.createTamagotchi(name); 
+                System.out.println("Por favor, elige un skin para tu Tamagotchi");
+                System.out.println("1-[Original] / 2-[Frog]");
+                int skin = scanner.nextInt();
+                if (skin >= 1 && skin <= 2) tamagotchi = Tamagotchi.createTamagotchi(name, skin);
+                else tamagotchi = Tamagotchi.createTamagotchi(name, 1);
                 playSFX(0);
-                validName = true;   
+                validName = true;
             }else{
                 System.out.println("El nombre ingresado no es valido. ¡Intentalo de nuevo!");
             }
@@ -110,4 +116,10 @@ public class Game {
         soundPlayer.loop();;
         
     }
+
+    //FAKE CLEAR CONSOLE
+    public static void clearConsole() {
+        for (int i = 0; i < SharedConstants.CLEAR_LINES; i++) System.out.println();
+    }
+
 }   

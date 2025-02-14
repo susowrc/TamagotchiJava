@@ -1,6 +1,7 @@
 package state;
 
 import main.Tamagotchi;
+import skins.TamagochiSkinsInterface;
 import utils.TamagotchiHelper;
 
 public class HappyState implements TamagotchiState{
@@ -9,26 +10,26 @@ public class HappyState implements TamagotchiState{
      private static int DECREASE_HUNGER = 10;
 
     @Override
-    public TamagotchiState play(Tamagotchi tamagotchi) {
+    public TamagotchiState play(Tamagotchi tamagotchi, TamagochiSkinsInterface tamagochiSkinsInterface) {
         tamagotchi.increaseHunger(INCREASE_HUNGER);
         if (tamagotchi.isDeadByHunger()) {
-            TamagotchiHelper.renderDeathByHunger(tamagotchi);
+            TamagotchiHelper.renderDeathByHunger(tamagotchi, tamagochiSkinsInterface);
             return new DeadState();
         }
         else{
-            TamagotchiHelper.renderPlaying(tamagotchi);
+            TamagotchiHelper.renderPlaying(tamagotchi, tamagochiSkinsInterface);
             return this;
         }
     }
 
     @Override
-    public TamagotchiState getFood(Tamagotchi tamagotchi) {
+    public TamagotchiState getFood(Tamagotchi tamagotchi, TamagochiSkinsInterface tamagochiSkinsInterface) {
         tamagotchi.decreaseHunger(DECREASE_HUNGER);
         if (tamagotchi.isDeadByOverfed()) {
-            TamagotchiHelper.renderDeathByOverfed(tamagotchi);
+            TamagotchiHelper.renderDeathByOverfed(tamagotchi, tamagochiSkinsInterface);
             return new DeadState();
         }else{
-            TamagotchiHelper.renderEating(tamagotchi);
+            TamagotchiHelper.renderEating(tamagotchi, tamagochiSkinsInterface);
             return this;
         }
     }
