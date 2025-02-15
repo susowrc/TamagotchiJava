@@ -1,17 +1,16 @@
 package state;
 
 import main.Tamagotchi;
-import skins.TamagotchiSkinsInterface;
 
 public class DeadState implements TamagotchiState{
 
     @Override
-    public TamagotchiState play(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface) {
+    public TamagotchiState play(Tamagotchi tamagotchi) {
         return this;
     }
 
     @Override
-    public TamagotchiState getFood(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface) {
+    public TamagotchiState getFood(Tamagotchi tamagotchi) {
        return this;
     }
 

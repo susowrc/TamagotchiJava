@@ -7,14 +7,14 @@ import state.HappyState;
 import state.TamagotchiState;
 
 public class Tamagotchi {
-    
+
     private static final int MAX_HUNGER = 100;
     private static final int MIN_HUNGER = 0;
-    private TamagotchiSkinsInterface tamagotchiSkin;
 
     private String name;
     private int hunger;
     private TamagotchiState currentState;
+    private TamagotchiSkinsInterface tamagotchiSkin;
 
     Game gp = new Game();
 
@@ -43,13 +43,13 @@ public class Tamagotchi {
 
     // ACTIONS
     public void play(){
-        this.currentState = this.currentState.play(this, tamagotchiSkin);
+        this.currentState = this.currentState.play(this);
         gp.playSFX(3);
         
     }
 
     public void eat(){
-        this.currentState = this.currentState.getFood(this, tamagotchiSkin);
+        this.currentState = this.currentState.getFood(this);
         gp.playSFX(4);
     }
 
@@ -90,5 +90,9 @@ public class Tamagotchi {
     public TamagotchiState getCurrentState() {
         return currentState;
     }
-    
+
+    public TamagotchiSkinsInterface getTamagotchiSkin() {
+        return tamagotchiSkin;
+    }
+
 }

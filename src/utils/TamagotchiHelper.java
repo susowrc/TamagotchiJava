@@ -1,6 +1,5 @@
 package utils;
 import main.Tamagotchi;
-import skins.TamagotchiSkinsInterface;
 
 public class TamagotchiHelper {
         
@@ -8,28 +7,28 @@ public class TamagotchiHelper {
         System.out.println("Hambre: " + tamagotchi.getHunger());
     }
 
-    public static void renderDeathByHunger(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+    public static void renderDeathByHunger(Tamagotchi tamagotchi){
         System.out.println(tamagotchi.getName() + " murio de hambre");
-        tamagotchiSkinsInterface.renderDeath();
+        tamagotchi.getTamagotchiSkin().renderDeath();
         showHunger(tamagotchi);
     }
 
-    public static void renderDeathByOverfed(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+    public static void renderDeathByOverfed(Tamagotchi tamagotchi){
         System.out.println(tamagotchi.getName() + " murio de sobrepeso");
-        tamagotchiSkinsInterface.renderDeath();
+        tamagotchi.getTamagotchiSkin().renderDeath();
         showHunger(tamagotchi);
     }
 
-    public static void renderPlaying(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+    public static void renderPlaying(Tamagotchi tamagotchi){
         System.out.println(tamagotchi.getName() + " está jugando!");
-        tamagotchiSkinsInterface.renderPlaying();
+        tamagotchi.getTamagotchiSkin().renderPlaying();
         System.out.println(tamagotchi.getName() + " ahora tiene hambre...");
         showHunger(tamagotchi);
     }
 
-    public static void renderEating(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+    public static void renderEating(Tamagotchi tamagotchi){
         System.out.println(tamagotchi.getName() + " está comiendo!");
-        tamagotchiSkinsInterface.renderEating();
+        tamagotchi.getTamagotchiSkin().renderEating();
         System.out.println(tamagotchi.getName() + " ahora está feliz!");
         showHunger(tamagotchi);
     }
