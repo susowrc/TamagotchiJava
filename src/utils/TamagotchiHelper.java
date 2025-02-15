@@ -1,6 +1,6 @@
 package utils;
 import main.Tamagotchi;
-import skins.TamagochiSkinsInterface;
+import skins.TamagotchiSkinsInterface;
 
 public class TamagotchiHelper {
         
@@ -8,30 +8,30 @@ public class TamagotchiHelper {
         System.out.println("Hambre: " + tamagotchi.getHunger());
     }
 
-    public static void renderDeathByHunger(Tamagotchi tamagochi, TamagochiSkinsInterface tamagochiSkinsInterface){
-        System.out.println(tamagochi.getName() + " murio de hambre");
-        tamagochiSkinsInterface.renderDeath();
-        showHunger(tamagochi);
+    public static void renderDeathByHunger(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+        System.out.println(tamagotchi.getName() + " murio de hambre");
+        tamagotchiSkinsInterface.renderDeath();
+        showHunger(tamagotchi);
     }
 
-    public static void renderDeathByOverfed(Tamagotchi tamagochi, TamagochiSkinsInterface tamagochiSkinsInterface){
-        System.out.println(tamagochi.getName() + " murio de sobrepeso");
-        tamagochiSkinsInterface.renderDeath();
-        showHunger(tamagochi);
+    public static void renderDeathByOverfed(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+        System.out.println(tamagotchi.getName() + " murio de sobrepeso");
+        tamagotchiSkinsInterface.renderDeath();
+        showHunger(tamagotchi);
     }
 
-    public static void renderPlaying(Tamagotchi tamagotchi, TamagochiSkinsInterface tamagochiSkinsInterface){
+    public static void renderPlaying(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
         System.out.println(tamagotchi.getName() + " está jugando!");
-        tamagochiSkinsInterface.renderPlaying();
+        tamagotchiSkinsInterface.renderPlaying();
         System.out.println(tamagotchi.getName() + " ahora tiene hambre...");
         showHunger(tamagotchi);
     }
 
-    public static void renderEating(Tamagotchi tamagochi, TamagochiSkinsInterface tamagochiSkinsInterface){
-        System.out.println(tamagochi.getName() + " está comiendo!");
-        tamagochiSkinsInterface.renderEating();
-        System.out.println(tamagochi.getName() + " ahora está feliz!");
-        showHunger(tamagochi);
+    public static void renderEating(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface){
+        System.out.println(tamagotchi.getName() + " está comiendo!");
+        tamagotchiSkinsInterface.renderEating();
+        System.out.println(tamagotchi.getName() + " ahora está feliz!");
+        showHunger(tamagotchi);
     }
 
     public static boolean checkName(String name) {

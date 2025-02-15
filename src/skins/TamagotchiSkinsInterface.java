@@ -1,6 +1,6 @@
 package skins;
 
-public interface TamagochiSkinsInterface {
+public interface TamagotchiSkinsInterface {
 	void renderEating();
 	void renderPlaying();
 	void renderSleeping();

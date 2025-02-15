@@ -1,6 +1,6 @@
 package skins;
 
-public class TamagochiFrogRender implements TamagochiSkinsInterface {
+public class TamagotchiFrogRender implements TamagotchiSkinsInterface {
 
     public void renderEating() {
     	System.out.println("\r\n"

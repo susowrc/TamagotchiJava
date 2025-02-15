@@ -1,6 +1,6 @@
 package skins;
 
-public class TamagochiOriginalRenderer implements TamagochiSkinsInterface {
+public class TamagotchiOriginalRenderer implements TamagotchiSkinsInterface {
 
 		public void renderEating() {
             System.out.println("  /\\_/\\  ");

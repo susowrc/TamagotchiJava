@@ -1,10 +1,10 @@
 package state;
 
 import main.Tamagotchi;
-import skins.TamagochiSkinsInterface;
+import skins.TamagotchiSkinsInterface;
 
 public interface TamagotchiState {
 
-    public TamagotchiState play(Tamagotchi tamagotchi, TamagochiSkinsInterface tamagochiSkinsInterface);
-    public TamagotchiState getFood(Tamagotchi tamagotchi, TamagochiSkinsInterface tamagochiSkinsInterface);
+    public TamagotchiState play(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface);
+    public TamagotchiState getFood(Tamagotchi tamagotchi, TamagotchiSkinsInterface tamagotchiSkinsInterface);
 }
